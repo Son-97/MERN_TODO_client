@@ -40,7 +40,7 @@ class Task extends Component {
         addToList(task).then(() => {
             this.getList();
         })
-        this.setState({ isOpenModal: false });
+        this.setState({ isOpenModal: false, type:"" });
     }
 
     handleAdd = () => this.setState({
@@ -56,7 +56,7 @@ class Task extends Component {
 
     handleClose = () => this.setState({ isOpenModal: false, row: {}, type: '' });
 
-    handleUpdate = value => {
+    handleUpdate = (value) => {
         this.setState({
             isOpenModal: true,
             row: value
@@ -67,8 +67,8 @@ class Task extends Component {
         let { task } = this.state;
         updateItem(task, id).then(() => {
             this.getList();
-            // this.setState({ isOpenModal: false });
         })
+        this.setState({ isOpenModal: false, row: {} });
     }
 
     render() {
